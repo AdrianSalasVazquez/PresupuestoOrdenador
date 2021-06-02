@@ -1,6 +1,6 @@
 package componentes;
 
-public abstract class Componente {
+public class Componente {
 
 	private String marca;
 	private String modelo;
@@ -37,6 +37,8 @@ public abstract class Componente {
 	}
 	
 	@Override
-	public abstract String toString();
+	public String toString() {
+		return null;
+	}
 	
 }
