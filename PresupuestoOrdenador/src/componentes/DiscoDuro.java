@@ -64,7 +64,7 @@ public class DiscoDuro extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getTipoDisco() + " " + getCapacidad() + " " + getInterfaz() + " " + getTamanoFisico() + " " + getConsumo();
 	}
 
 }

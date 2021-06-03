@@ -48,7 +48,7 @@ public class MemoriaRam extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getNumModulos() + " " + getTamano() + " " + getTipoMemoria() + " " + getVelocidad();
 	}
 	
 	

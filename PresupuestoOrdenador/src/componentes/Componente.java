@@ -38,7 +38,7 @@ public class Componente {
 	
 	@Override
 	public String toString() {
-		return null;
+		return getMarca() + " " + getModelo() + " " + getPrecio();
 	}
 	
 }

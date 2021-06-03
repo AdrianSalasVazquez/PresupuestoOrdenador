@@ -131,7 +131,7 @@ public class Procesador extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getNucleos() + " " + getHilos() + " " + getVelocidad() + " " + getMaxRAM() + " " + getTipoRAM() + " " + getConsumo();
 	}
-
+	
 }

@@ -38,7 +38,7 @@ public class Bateria extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getVoltaje() + " " + getTipoPila() + " " + getCarga();
 	}
 	
 	

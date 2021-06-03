@@ -108,7 +108,7 @@ public class Caja extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getNumUsb() + " " + getNumHdd() + " " + getNumPci() + " " + getMaterial() + " " + getPeso();
 	}
 	
 }

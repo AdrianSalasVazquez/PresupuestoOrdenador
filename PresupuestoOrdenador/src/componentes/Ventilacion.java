@@ -48,6 +48,6 @@ public class Ventilacion extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getTipoVentilacion() + " " + getNumVentiladores() + " " + getSocket() + " " + getConsumo();
 	}
 }

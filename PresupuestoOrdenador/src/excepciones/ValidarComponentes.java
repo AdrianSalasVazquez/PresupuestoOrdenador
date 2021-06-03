@@ -2,7 +2,7 @@ package excepciones;
 
 public class ValidarComponentes {
 	private boolean esBien(String m) {
-		return ;
+		return false;
 	}
 
 	public void validar(String coordenada) throws Excepciones{

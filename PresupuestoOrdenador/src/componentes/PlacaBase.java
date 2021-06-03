@@ -112,7 +112,7 @@ public class PlacaBase extends Componente{
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getSocket() + " " + getMaxRAM() + " " + getTipoRAM() + " " + getNumPCI() + " " + getFactorForma();
 	}
 
 }

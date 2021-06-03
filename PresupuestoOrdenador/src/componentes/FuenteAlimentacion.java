@@ -48,7 +48,7 @@ public class FuenteAlimentacion extends Componente {
 
 	@Override
 	public String toString() {
-		return null;
+		return super.toString() + " " + getPotencia() + " " + getFormatoForma() + " " + getTipoFuente() + " " + getCertificacion();
 	}
 	
 	
