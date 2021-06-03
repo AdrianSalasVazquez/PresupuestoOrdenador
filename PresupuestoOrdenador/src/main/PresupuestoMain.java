@@ -4,14 +4,13 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import ventana.VentanaPresupuesto;
+
 public class PresupuestoMain {
 
 	public static void main(String[] args) {
 		
-		Frame ventana = new Frame();
-		ventana.setTitle("Presupuesto PC");
-		ventana.setSize(600, 600);
-		ventana.setVisible(true);
+		VentanaPresupuesto ventana = new VentanaPresupuesto(600, 600);
 		
 		Panel panel1 = new Panel();
 		
