@@ -1,8 +1,7 @@
 package main;
 
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 import ventana.VentanaPresupuesto;
 
@@ -12,32 +11,33 @@ public class PresupuestoMain {
 		
 		VentanaPresupuesto ventana = new VentanaPresupuesto(600, 600);
 		
+		
 		Panel panel1 = new Panel();
 		
 		ventana.add(panel1);
 		
-		CheckboxGroup tipoPc = new CheckboxGroup();
-		Checkbox sobremesa = new Checkbox("Sobremesa", false, tipoPc);
-		Checkbox portatil = new Checkbox("Portatil", false, tipoPc);
-		panel1.add(sobremesa);
-		panel1.add(portatil);
+		Button botonSobremesa = new Button("Sobremesa");
+		Button botonPortatil = new Button("Portatil");
+		panel1.add(botonSobremesa);
+		panel1.add(botonPortatil);
 		
-		if(sobremesa.getState()) {
-			
-			List placaBase = new List(4, true);
-			
-			placaBase.add("MSI Z490-A PRO");
-			placaBase.add("Gigabyte B550M DS3H");
-			placaBase.add("MSI Mpg Z390 Gaming Plus");
-			
-			panel1.add(placaBase);
-			
-		}else if(portatil.getState()) {
-			
-			
-			
-		}
+		botonSobremesa.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				VentanaPresupuesto ventanaSobremesa = new VentanaPresupuesto("Sobremesa", 600, 600);
+				Panel panelSobre1 = new Panel();
+				ventanaSobremesa.add(panelSobre1);
+				
+			}
+		});
 		
+		botonPortatil.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				VentanaPresupuesto ventanaPortatil = new VentanaPresupuesto("Portatil", 600, 600);
+				Panel panelPortatil1 = new Panel();
+				ventanaPortatil.add(panelPortatil1);
+				
+			}
+		});
 		
 		ventana.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
