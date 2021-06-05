@@ -6,22 +6,16 @@ public class Caja extends Componente {
 	int numHdd;
 	int numSsd;
 	int numPci;
-	boolean ventilacionSup;
-	boolean ventilacionFront;
-	boolean ventilacionTras;
 	String material;
 	int peso;
 	
-	public Caja(String marca, String modelo, double precio, String factorForma, int numUsb, int numHdd, int numSsd, int numPci, boolean ventilacionSup, boolean ventilacionFront, boolean ventilacionTras, String material, int peso) {
+	public Caja(String marca, String modelo, double precio, String factorForma, int numUsb, int numHdd, int numSsd, int numPci, String material, int peso) {
 		super(marca, modelo, precio);
 		this.factorForma = factorForma;
 		this.numUsb = numUsb;
 		this.numHdd = numHdd;
 		this.numSsd = numSsd;
 		this.numPci = numPci;
-		this.ventilacionFront = ventilacionFront;
-		this.ventilacionSup = ventilacionSup;
-		this.ventilacionTras = ventilacionTras;
 		this.material = material;
 		this.peso = peso;
 	}
@@ -64,30 +58,6 @@ public class Caja extends Componente {
 
 	public void setNumPci(int numPci) {
 		this.numPci = numPci;
-	}
-
-	public boolean isVentilacionSup() {
-		return ventilacionSup;
-	}
-
-	public void setVentilacionSup(boolean ventilacionSup) {
-		this.ventilacionSup = ventilacionSup;
-	}
-
-	public boolean isVentilacionFront() {
-		return ventilacionFront;
-	}
-
-	public void setVentilacionFront(boolean ventilacionFront) {
-		this.ventilacionFront = ventilacionFront;
-	}
-
-	public boolean isVentilacionTras() {
-		return ventilacionTras;
-	}
-
-	public void setVentilacionTras(boolean ventilacionTras) {
-		this.ventilacionTras = ventilacionTras;
 	}
 
 	public String getMaterial() {
