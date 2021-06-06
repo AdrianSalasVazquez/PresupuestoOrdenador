@@ -1,0 +1,4 @@
+Marca	|Modelo		|Nucleos	|Hilos	|Velocidad	|consumo	|Precio
+AMD	|Ryzen 7 2700X	|8		|16	|3.7GHz		|105		|532.69
+Intel	|Core I7 10700K	|8		|16	|3.8GHz		|95		|319.90
+Intel	|Core I5 10600K	|6		|12	|4.1GHz		|125		|199.90

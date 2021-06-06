@@ -1,22 +1,22 @@
 package componentes;
 
 public class Bateria extends Componente {
-	int voltaje;
+	double voltaje;
 	String tipoPila;
 	int carga;
 	
-	public Bateria(String marca, String modelo, double precio, int voltaje, String tipoPila, int carga) {
+	public Bateria(String marca, String modelo, double precio, double voltaje, String tipoPila, int carga) {
 		super(marca, modelo, precio);
 		this.voltaje = voltaje;
 		this.tipoPila = tipoPila;
 		this.carga = carga;
 	}
 
-	public int getVoltaje() {
+	public double getVoltaje() {
 		return voltaje;
 	}
 
-	public void setVoltaje(int voltaje) {
+	public void setVoltaje(double voltaje) {
 		this.voltaje = voltaje;
 	}
 

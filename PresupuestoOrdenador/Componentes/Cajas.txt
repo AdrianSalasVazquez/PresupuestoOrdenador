@@ -1,0 +1,5 @@
+Marca		|Modelo			|Factor Forma 	|numUSB	|numHDD	|numSSD	|numPCI	|Material	|Peso	|Precio
+Nox		|Hummer TGX Rainbow RGB	|ATX		|2	|3	|6	|8	|SPCC		|10.7	|105
+Thermaltake	|H200 TG RGB		|ATX		|2	|2	|3	|7	|SPCC		|7.6	|64.99
+Nfortec		|Lynx			|ATX		|3	|2	|2	|7	|Acero		|3.4	|49.95
+MSI		|MPG Sekira		|ATX		|2	|2	|2	|7	|SPCC		|7.9	|120

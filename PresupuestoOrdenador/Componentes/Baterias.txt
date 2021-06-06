@@ -1,0 +1,4 @@
+Marca		|Modelo		|Voltaje	|TipoPila	|Carga	|Precio	
+Green Cell PRO 	|AS09C31	|11.1		|Litio Ion	|4400	|29,95
+7xinbox 	|HS03		|14.6		|Litio Ion	|4100	|27,99	
+DTK	 	|EV06		|10.8		|Litio Ion	|5200	|29,59	

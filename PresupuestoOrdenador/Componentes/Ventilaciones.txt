@@ -1,0 +1,4 @@
+Marca	|Modelo		|tipoVentilacion	|numVent|Consumo	|Precio
+Nfortec	|Hydrus RGB	|Refrigeracion Liquida	|2	|3.5		|74.95
+Hiditec	|C12 PWM	|Ventilador CPU		|1	|12		|24.99
+NZXT 	|Kraken M22	|Refrigeracion Liquida	|1	|4.2		|74.90

@@ -1,0 +1,4 @@
+Marca		|Modelo			|socket	|numPCI	|factorForma	|Precio
+Asus		|Prime H370M Plus	|LGA1151|4	|ATX		|125
+Gigabyte	|X570 Aorus Elite	|AMDX570|6	|ATX		|194.96
+MSI		|MPG Z490 GAMING PLUS	|LGA1200|4	|ATX		|176.90

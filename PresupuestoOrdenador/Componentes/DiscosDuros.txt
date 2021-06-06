@@ -1,0 +1,4 @@
+Marca		|Modelo		|TipoDisco	|Capacidad	|Consumo	|Precio
+Kingston	|A400		|SSD		|240		|0.279		|29.50
+Seagate 	|BarraCuda	|HDD		|1024		|5.3		|36.96
+Seagate 	|BarraCuda	|HDD		|2048		|7.3		|48.99

@@ -2,21 +2,304 @@ package main;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.*;
+import java.util.ArrayList;
 
-import ventana.PanelComponente;
-import ventana.VentanaPresupuesto;
+import componentes.*;
+import ventana.*;
 
 public class PresupuestoMain {
 
 	public static void main(String[] args) {
 		
-		VentanaPresupuesto ventana = new VentanaPresupuesto(300, 300);
+		ArrayList<MemoriaRam> ram = null;
+		ArrayList<PlacaBase> placa = null;
+		ArrayList<Ventilacion> ventilacion = null;
+		ArrayList<Bateria> bateria = null;
+		ArrayList<Caja> caja = null;
+		ArrayList<DiscoDuro> discoDuro = null;
+		ArrayList<FuenteAlimentacion> fuente = null;
+		ArrayList<Procesador> procesador = null;
+		ArrayList<TarjetaGrafica> graficas = null;
 		
-		Panel panel1 = new Panel(new GridLayout(2, 2, 1, 10));
+		VentanaPresupuesto ventana = new VentanaPresupuesto(400, 400);
+		
+		File archivoBaterias = new File("Componentes//Baterias.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> baterias = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					baterias.add(linea);
+				}
+			}
+			br.close();
+			
+			bateria = new ArrayList();
+			for(int i = 1; i < baterias.size(); i++) {
+				 String datos = baterias.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 double precio = Double.parseDouble(palabrasSeparadas[2]);
+				 double voltaje = Double.parseDouble(palabrasSeparadas[3]);
+				 String tipoPila = palabrasSeparadas[4];
+				 int carga = Integer.parseInt(palabrasSeparadas[5]);
+				 bateria.add(new Bateria(marca, modelo, precio, voltaje, tipoPila, carga));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoCajas = new File("Componentes//Cajas.txt");
+		try {
+			FileReader fr = new FileReader(archivoCajas);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> cajas = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					cajas.add(linea);
+				}
+			}
+			br.close();
+			
+			caja = new ArrayList();
+			for(int i = 1; i < cajas.size(); i++) {
+				 String datos = cajas.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 double precio = Double.parseDouble(palabrasSeparadas[2]);
+				 String factorForma = palabrasSeparadas[3];
+				 int numUsb = Integer.parseInt(palabrasSeparadas[4]);
+				 int numHdd = Integer.parseInt(palabrasSeparadas[5]);
+				 int numSsd = Integer.parseInt(palabrasSeparadas[6]);
+				 int numPci = Integer.parseInt(palabrasSeparadas[7]);
+				 String material = palabrasSeparadas[8];
+				 double peso = Double.parseDouble(palabrasSeparadas[9]);
+				 caja.add(new Caja(marca, modelo, precio, factorForma, numUsb, numHdd, numSsd, numPci, material, peso));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoDiscosDuros = new File("Componentes//DiscosDuros.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> discosDuros = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					discosDuros.add(linea);
+				}
+			}
+			br.close();
+			
+			discoDuro = new ArrayList();
+			for(int i = 1; i < discosDuros.size(); i++) {
+				 String datos = discosDuros.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 double precio = Double.parseDouble(palabrasSeparadas[2]);
+				 String tipoDisco = palabrasSeparadas[3];
+				 int capacidad = Integer.parseInt(palabrasSeparadas[4]);
+				 double consumo = Double.parseDouble(palabrasSeparadas[5]);
+				 discoDuro.add(new DiscoDuro(marca, modelo, precio, tipoDisco, capacidad, consumo));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoFuentes = new File("Componentes//FuentesAlimentacion.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> fuentes = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					fuentes.add(linea);
+				}
+			}
+			br.close();
+			
+			fuente = new ArrayList();
+			for(int i = 1; i < fuentes.size(); i++) {
+				 String datos = fuentes.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 double precio = Double.parseDouble(palabrasSeparadas[2]);
+				 int potencia = Integer.parseInt(palabrasSeparadas[3]);
+				 String tipoFuente = palabrasSeparadas[4];
+				 String certificacion = palabrasSeparadas[5];
+				 fuente.add(new FuenteAlimentacion(marca, modelo, precio, potencia, tipoFuente, certificacion));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoRam = new File("Componentes//MemoriasRAM.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> memoriasRam = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					memoriasRam.add(linea);
+				}
+			}
+			br.close();
+			
+			ram = new ArrayList();
+			for(int i = 1; i < memoriasRam.size(); i++) {
+				 String datos = memoriasRam.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 double precio = Double.parseDouble(palabrasSeparadas[2]);
+				 int numModulos = Integer.parseInt(palabrasSeparadas[3]);
+				 int tamano = Integer.parseInt(palabrasSeparadas[4]);
+				 String tipoMemoria = palabrasSeparadas[5];
+				 int velocidad = Integer.parseInt(palabrasSeparadas[6]);
+				 ram.add(new MemoriaRam(marca, modelo, precio, numModulos, tamano, tipoMemoria, velocidad));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoPlacasBase = new File("Componentes//PlacasBase.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> placasBase = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					placasBase.add(linea);
+				}
+			}
+			br.close();
+
+			placa = new ArrayList();
+			for(int i = 1; i < placasBase.size(); i++) {
+				 String datos = placasBase.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 String socket = palabrasSeparadas[2];
+				 int numPci = Integer.parseInt(palabrasSeparadas[4]);
+				 String factorForma = palabrasSeparadas[5];
+				 double precio = Double.parseDouble(palabrasSeparadas[6]);
+				 placa.add(new PlacaBase(marca, modelo, socket, numPci, factorForma, precio));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoProcesadores = new File("Componentes//Procesadores.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> procesadores = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					procesadores.add(linea);
+				}
+			}
+			br.close();
+
+			procesador = new ArrayList();
+			for(int i = 1; i < procesadores.size(); i++) {
+				 String datos = procesadores.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 int nucleos = Integer.parseInt(palabrasSeparadas[2]);
+				 int hilos = Integer.parseInt(palabrasSeparadas[3]);
+				 String velocidad = palabrasSeparadas[4];
+				 double consumo = Double.parseDouble(palabrasSeparadas[5]);
+				 double precio = Double.parseDouble(palabrasSeparadas[6]);
+				 procesador.add(new Procesador(marca, modelo, nucleos, hilos, velocidad, consumo, precio));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoGraficas = new File("Componentes//TarjetasGraficas.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> tarjetasGraficas = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					tarjetasGraficas.add(linea);
+				}
+			}
+			br.close();
+
+			graficas = new ArrayList();
+			for(int i = 1; i < tarjetasGraficas.size(); i++) {
+				 String datos = tarjetasGraficas.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 String memoriaGrafica = palabrasSeparadas[2];
+				 Double consumo = Double.parseDouble(palabrasSeparadas[3]);
+				 double precio = Double.parseDouble(palabrasSeparadas[4]);
+				 graficas.add(new TarjetaGrafica(marca, modelo, memoriaGrafica, consumo, precio));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		File archivoVentilaciones = new File("Componentes//Ventilaciones.txt");
+		try {
+			FileReader fr = new FileReader(archivoBaterias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea = "";
+			ArrayList<String> ventilaciones = new ArrayList();
+			while(linea != null) {
+				linea = br.readLine();
+				if(linea != null) {
+					ventilaciones.add(linea);
+				}
+			}
+			br.close();
+			
+			ventilacion = new ArrayList();
+			for(int i = 1; i < ventilaciones.size(); i++) {
+				 String datos = ventilaciones.get(i);
+				 String[] palabrasSeparadas = datos.strip().split("|");
+				 String marca = palabrasSeparadas[0];
+				 String modelo = palabrasSeparadas[1];
+				 double precio = Double.parseDouble(palabrasSeparadas[2]);
+				 String tipoVentilacion = palabrasSeparadas[3];
+				 int numVentiladores = Integer.parseInt(palabrasSeparadas[4]);
+				 double consumo = Double.parseDouble(palabrasSeparadas[5]);
+				 ventilacion.add(new Ventilacion(marca, modelo, precio, tipoVentilacion, numVentiladores, consumo));
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		Panel panel1 = new Panel(new GridLayout(2, 2, 0, 10));
 		
 		ventana.add(panel1);
 		
@@ -26,53 +309,45 @@ public class PresupuestoMain {
 		panel1.add(botonSobremesa);
 		panel1.add(botonPortatil);
 		
-		String[] listaGraficas = new String[4];
-		listaGraficas[0] = "NVIDIA 1080";
-		listaGraficas[1] = "NVIDIA 1070";
-		listaGraficas[2] = "NVIDIA 1060";
-		listaGraficas[3] = "NVIDIA 1050";
+		ArrayList<String> listaPlacaBase = new ArrayList();
+		for(int i = 0; i < placa.size(); i++) {
+			listaPlacaBase.add(placa.get(i).getNombre());
+		}
 		
-		String[] listaProcesadores = new String[4];
-		listaProcesadores[0] = "AMD Ryzen 5";
-		listaProcesadores[1] = "Intel Core I5";
-		listaProcesadores[2] = "AMD Ryzen 3";
-		listaProcesadores[3] = "Intel Core I7";
+		ArrayList<String> listaGraficas = new ArrayList();
+		for(int i = 0; i < graficas.size(); i++) {
+			listaGraficas.add(graficas.get(i).getNombre());
+		}
 		
-		String[] listaVentilacion = new String[4];
-		listaVentilacion[0] = "Aerocool Astro 12 RGB Ventilador 120mm";
-		listaVentilacion[1] = "Nox Hummer H-224 Noir Ventilador CPU";
-		listaVentilacion[2] = "Mars Gaming MCPU120 Ventilador CPU RGB 120mm";
-		listaVentilacion[3] = "Corsair Hydro H60 Kit de Refrigeración Líquida";
+		ArrayList<String> listaProcesadores = new ArrayList();
+		for(int i = 0; i < procesador.size(); i++) {
+			listaGraficas.add(procesador.get(i).getNombre());
+		}
 		
-		String[] listaPlacaBase = new String[4];
-		listaPlacaBase[0] = "Asus Prime H370M Plus";
-		listaPlacaBase[1] = "MSI Z490-A PRO";
-		listaPlacaBase[2] = "Gigabyte B365M-DS3H";
-		listaPlacaBase[3] = "MSI MPG Z490 GAMING PLUS";
+		ArrayList<String> listaFuenteAlimentacion = new ArrayList();
+		for(int i = 0; i < fuente.size(); i++) {
+			listaGraficas.add(fuente.get(i).getNombre());
+		}
 		
-		String[] listaMemoriaRam = new String[4];
-		listaMemoriaRam[0] = "Corsair Vengeance AMD DDR4 3200Mhz 16GB 2x8GB CL16";
-		listaMemoriaRam[1] = "Kingston HyperX Fury Black 16GB DDR4 2666Mhz (2x8GB) CL16";
-		listaMemoriaRam[2] = "G.Skill Trident Z RGB DDR4 3200 16GB 2x8GB CL16";
-		listaMemoriaRam[3] = "Team Group T-Force Delta DDR4 3600MHz 16GB 2x8GB CL18";
+		ArrayList<String> listaVentilacion = new ArrayList();
+		for(int i = 0; i < ventilacion.size(); i++) {
+			listaGraficas.add(ventilacion.get(i).getNombre());
+		}
 		
-		String[] listaFuenteAlimentacion = new String[4];
-		listaFuenteAlimentacion[0] = "EVGA W1 600W 80 Plus";
-		listaFuenteAlimentacion[1] = "Nox Urano VX 650W 80+ Bronze 120MM PWM";
-		listaFuenteAlimentacion[2] = "Thermaltake Smart RGB 700W 80 Plus";
-		listaFuenteAlimentacion[3] = "Corsair TX850M 850W 80 Plus Gold Semi Modular";
+		ArrayList<String> listaMemoriaRam = new ArrayList();
+		for(int i = 0; i < ram.size(); i++) {
+			listaGraficas.add(ram.get(i).getNombre());
+		}
 		
-		String[] listaDiscoDuro = new String[4];
-		listaDiscoDuro[0] = "Toshiba L200 2.5 1TB SATA 3";
-		listaDiscoDuro[1] = "Toshiba P300 3.5 2 TB 7200RPM SATA";
-		listaDiscoDuro[2] = "Toshiba P300 3.5 3TB 7200 RPM SATA";
-		listaDiscoDuro[3] = "Toshiba X300 3.5 4TB SATA III";
+		ArrayList<String> listaDiscoDuro = new ArrayList();
+		for(int i = 0; i < discoDuro.size(); i++) {
+			listaGraficas.add(discoDuro.get(i).getNombre());
+		}
 		
-		String[] listaCaja = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
+		ArrayList<String> listaCaja = new ArrayList();
+		for(int i = 0; i < caja.size(); i++) {
+			listaGraficas.add(caja.get(i).getNombre());
+		}
 		
 		botonSobremesa.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -92,63 +367,14 @@ public class PresupuestoMain {
 			}
 		});
 		
-		String[] placasBases = new String[4];
-		listaCaja[0] = "Intel Core i5-1135G7";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
+		ArrayList<String> ethernet = new ArrayList();
+		ethernet.add("Tiene ethernet");
+		ethernet.add("No tiene ethernet");
 		
-		String[] procesadores = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] discosDuros = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] ventilacion = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] memoriaRam = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] marca = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] modelo = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] numeroUsb = new String[4];
-		listaCaja[0] = "Silverstone PS15 Torre Micro ATX Cristal Templado Blanca";
-		listaCaja[1] = "SilverStone PS13 Torre ATX Negra";
-		listaCaja[2] = "Thermaltake Tower 100 Mini Torre Blanca";
-		listaCaja[3] = "BitFenix Enso Torre ATX Cristal Templado RGB Negra";
-		
-		String[] ethernet = new String[2];
-		ethernet[0] = "Tiene ethernet";
-		ethernet[1] = "No tiene ethernet";
-		
-		String[] bateria = new String[4];
-		bateria[0] = "ASUNCELL para HP COMPAQ";
-		bateria[1] = "ARyee para ASUS A41-X550A";
-		bateria[2] = "Green Cell para HP JC04";
-		bateria[3] = "NinjaBatt para Toshiba L50";
+		ArrayList<String> listaBateria = new ArrayList();
+		for(int i = 0; i < bateria.size(); i++) {
+			listaBateria.add(bateria.get(i).getNombre());
+		}
 		
 		botonPortatil.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -163,9 +389,8 @@ public class PresupuestoMain {
 				panelPortatil1.add(new PanelComponente("Memoria RAM",listaDiscoDuro).getPanel());
 				panelPortatil1.add(new PanelComponente("Marca",listaCaja).getPanel());
 				panelPortatil1.add(new PanelComponente("Modelo",listaDiscoDuro).getPanel());
-				panelPortatil1.add(new PanelComponente("Numero USB",listaDiscoDuro).getPanel());
 				panelPortatil1.add(new PanelComponente("Ethernet",ethernet).getPanel());
-				panelPortatil1.add(new PanelComponente("Bateria",bateria).getPanel());
+				panelPortatil1.add(new PanelComponente("Bateria",listaBateria).getPanel());
 				ventanaPortatil.add(panelPortatil1);
 				
 			}

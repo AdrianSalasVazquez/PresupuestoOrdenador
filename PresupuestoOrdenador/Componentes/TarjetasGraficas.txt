@@ -1,0 +1,3 @@
+Marca		|Modelo			|memoriaGrafica	|Consumo	|Precio
+MSI GeForce	|GTX 1660 SUPER GAMING X|6GB GDDR6	|125		|479.90
+Zotac GeForce	| GTX 1660 Twin Fan	|6GB GDDR5	|120		|479.90

@@ -1,0 +1,4 @@
+Marca		|Modelo		|numModulos	|Tamaño	|TipoMemoria	|Velocidad	|Precio
+Kingston	|HyperX Fury	|2		|16	|DDR4		|3200		|101.60
+Kingston	|HyperX Fury	|1		|16	|DDR4		|2666		|88
+GSkill 		|Trident Z RGB	|2		|16	|DDR4		|3200		|123.99

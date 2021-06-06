@@ -1,0 +1,4 @@
+Marca		|Modelo		|Potencia	|tipoFuente	|Certificacion	|Precio
+MSI 		|MPG A650GF	|650		|Modular	|80 Plus Gold	|124.99
+Thermaltake	|Smart RGB	|700		|Modular	|80 Plus	|59.98
+Corsair		|TX850M		|850		|Semi Modular	|80 Plus Gold	|124.90
