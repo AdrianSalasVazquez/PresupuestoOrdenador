@@ -3,14 +3,12 @@ package componentes;
 public class Ventilacion extends Componente {
 	String tipoVentilacion;
 	int numVentiladores;
-	String socket;
-	int consumo;
+	double consumo;
 	
-	public Ventilacion(String marca, String modelo, double precio, String tipoVentilacion, int numVentiladores, String socket, int consumo) {
+	public Ventilacion(String marca, String modelo, double precio, String tipoVentilacion, int numVentiladores, double consumo) {
 		super(marca, modelo, precio);
 		this.tipoVentilacion = tipoVentilacion;
 		this.numVentiladores = numVentiladores;
-		this.socket = socket;
 		this.consumo = consumo;
 	}
 	
@@ -30,24 +28,16 @@ public class Ventilacion extends Componente {
 		this.numVentiladores = numVentiladores;
 	}
 
-	public String getSocket() {
-		return socket;
-	}
-
-	public void setSocket(String socket) {
-		this.socket = socket;
-	}
-
-	public int getConsumo() {
+	public double getConsumo() {
 		return consumo;
 	}
 
-	public void setConsumo(int consumo) {
+	public void setConsumo(double consumo) {
 		this.consumo = consumo;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getTipoVentilacion() + " " + getNumVentiladores() + " " + getSocket() + " " + getConsumo();
+		return super.toString() + " " + getTipoVentilacion() + " " + getNumVentiladores() + " " + getConsumo();
 	}
 }

@@ -2,17 +2,13 @@ package componentes;
 
 public class TarjetaGrafica extends Componente {
 
-	private int memoriaGrafica;
-	private String tipoMemoriaGrafica;
-	private String resolucionMax;
-	private int consumo;
+	private String memoriaGrafica;
+	private double consumo;
 	
 	
-	public TarjetaGrafica(String marca, String modelo, int memoriaGrafica, String tipoMemoriaGrafica, String resolucionMax, int consumo, double precio) {
+	public TarjetaGrafica(String marca, String modelo, String memoriaGrafica, double consumo, double precio) {
 		super(marca, modelo, precio);
 		this.memoriaGrafica = memoriaGrafica;
-		this.tipoMemoriaGrafica = tipoMemoriaGrafica;
-		this.resolucionMax = resolucionMax;
 		this.consumo = consumo;
 	}
 
@@ -21,7 +17,7 @@ public class TarjetaGrafica extends Componente {
 	/**
 	 * @return the memoriaGrafica
 	 */
-	public int getMemoriaGrafica() {
+	public String getMemoriaGrafica() {
 		return memoriaGrafica;
 	}
 
@@ -30,52 +26,15 @@ public class TarjetaGrafica extends Componente {
 	/**
 	 * @param memoriaGrafica the memoriaGrafica to set
 	 */
-	public void setMemoriaGrafica(int memoriaGrafica) {
+	public void setMemoriaGrafica(String memoriaGrafica) {
 		this.memoriaGrafica = memoriaGrafica;
 	}
-
-
-
-	/**
-	 * @return the tipoMemoriaGrafica
-	 */
-	public String getTipoMemoriaGrafica() {
-		return tipoMemoriaGrafica;
-	}
-
-
-
-	/**
-	 * @param tipoMemoriaGrafica the tipoMemoriaGrafica to set
-	 */
-	public void setTipoMemoriaGrafica(String tipoMemoriaGrafica) {
-		this.tipoMemoriaGrafica = tipoMemoriaGrafica;
-	}
-
-
-
-	/**
-	 * @return the resolucionMax
-	 */
-	public String getResolucionMax() {
-		return resolucionMax;
-	}
-
-
-
-	/**
-	 * @param resolucionMax the resolucionMax to set
-	 */
-	public void setResolucionMax(String resolucionMax) {
-		this.resolucionMax = resolucionMax;
-	}
-
 
 
 	/**
 	 * @return the consumo
 	 */
-	public int getConsumo() {
+	public double getConsumo() {
 		return consumo;
 	}
 
@@ -84,7 +43,7 @@ public class TarjetaGrafica extends Componente {
 	/**
 	 * @param consumo the consumo to set
 	 */
-	public void setConsumo(int consumo) {
+	public void setConsumo(double consumo) {
 		this.consumo = consumo;
 	}
 
@@ -92,7 +51,7 @@ public class TarjetaGrafica extends Componente {
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getMemoriaGrafica() + " " + getTipoMemoriaGrafica() + " " + getResolucionMax() + " " + getConsumo();
+		return super.toString() + " " + getMemoriaGrafica() + " " + " " + getConsumo();
 	}
 	
 	

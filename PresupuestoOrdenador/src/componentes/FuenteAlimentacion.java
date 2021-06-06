@@ -2,14 +2,12 @@ package componentes;
 
 public class FuenteAlimentacion extends Componente {
 	int potencia;
-	String formatoForma;
 	String tipoFuente;
 	String certificacion;
 	
-	public FuenteAlimentacion(String marca, String modelo, double precio, int potencia, String formatoForma, String tipoFuente, String certificacion) {
+	public FuenteAlimentacion(String marca, String modelo, double precio, int potencia, String tipoFuente, String certificacion) {
 		super(marca, modelo, precio);
 		this.potencia = potencia;
-		this.formatoForma = formatoForma;
 		this.tipoFuente = tipoFuente;
 		this.certificacion = certificacion;
 	}
@@ -20,14 +18,6 @@ public class FuenteAlimentacion extends Componente {
 
 	public void setPotencia(int potencia) {
 		this.potencia = potencia;
-	}
-
-	public String getFormatoForma() {
-		return formatoForma;
-	}
-
-	public void setFormatoForma(String formatoForma) {
-		this.formatoForma = formatoForma;
 	}
 
 	public String getTipoFuente() {
@@ -48,7 +38,7 @@ public class FuenteAlimentacion extends Componente {
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getPotencia() + " " + getFormatoForma() + " " + getTipoFuente() + " " + getCertificacion();
+		return super.toString() + " " + getPotencia() + " " + getTipoFuente() + " " + getCertificacion();
 	}
 	
 	

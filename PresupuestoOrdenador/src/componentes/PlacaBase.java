@@ -3,16 +3,12 @@ package componentes;
 public class PlacaBase extends Componente{
 
 	private String socket;
-	private int maxRAM;
-	private String tipoRAM;
 	private int numPCI;
 	private String factorForma;
 	
-	public PlacaBase(String marca, String modelo, String socket, int maxRAM, String tipoRAM, int numPCI, String factorForma , double precio) {
+	public PlacaBase(String marca, String modelo, String socket, int numPCI, String factorForma , double precio) {
 		super(marca, modelo, precio);
 		this.socket = socket;
-		this.maxRAM = maxRAM;
-		this.tipoRAM = tipoRAM;
 		this.numPCI = numPCI;
 		this.factorForma = factorForma;
 		
@@ -34,42 +30,6 @@ public class PlacaBase extends Componente{
 	 */
 	public void setSocket(String socket) {
 		this.socket = socket;
-	}
-
-
-
-	/**
-	 * @return the maxRAM
-	 */
-	public int getMaxRAM() {
-		return maxRAM;
-	}
-
-
-
-	/**
-	 * @param maxRAM the maxRAM to set
-	 */
-	public void setMaxRAM(int maxRAM) {
-		this.maxRAM = maxRAM;
-	}
-
-
-
-	/**
-	 * @return the tipoRAM
-	 */
-	public String getTipoRAM() {
-		return tipoRAM;
-	}
-
-
-
-	/**
-	 * @param tipoRAM the tipoRAM to set
-	 */
-	public void setTipoRAM(String tipoRAM) {
-		this.tipoRAM = tipoRAM;
 	}
 
 
@@ -112,7 +72,7 @@ public class PlacaBase extends Componente{
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getSocket() + " " + getMaxRAM() + " " + getTipoRAM() + " " + getNumPCI() + " " + getFactorForma();
+		return super.toString() + " " + getSocket() + " " + getNumPCI() + " " + getFactorForma();
 	}
 
 }

@@ -2,8 +2,11 @@ package main;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import componentes.Bateria;
 import ventana.PanelComponente;
 import ventana.VentanaPresupuesto;
 
@@ -11,14 +14,15 @@ public class PresupuestoMain {
 
 	public static void main(String[] args) {
 		
-		VentanaPresupuesto ventana = new VentanaPresupuesto(600, 600);
+		VentanaPresupuesto ventana = new VentanaPresupuesto(300, 300);
 		
-		Panel panel1 = new Panel();
+		Panel panel1 = new Panel(new GridLayout(2, 2, 1, 10));
 		
 		ventana.add(panel1);
 		
 		Button botonSobremesa = new Button("Sobremesa");
 		Button botonPortatil = new Button("Portatil");
+		Button guardarPresupuesto = new Button("Guardar Presupuesto");
 		panel1.add(botonSobremesa);
 		panel1.add(botonPortatil);
 		
@@ -83,8 +87,8 @@ public class PresupuestoMain {
 				panelSobre1.add(new PanelComponente("Memoria RAM",listaMemoriaRam).getPanel());
 				panelSobre1.add(new PanelComponente("Disco Duro",listaDiscoDuro).getPanel());
 				panelSobre1.add(new PanelComponente("Caja",listaCaja).getPanel());
+				panelSobre1.add(guardarPresupuesto);
 				ventanaSobremesa.add(panelSobre1);
-				
 			}
 		});
 		
@@ -166,7 +170,5 @@ public class PresupuestoMain {
 				
 			}
 		});
-		
 	}
-
 }

@@ -45,10 +45,15 @@ public class MemoriaRam extends Componente {
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
 	}
+	
+	public String getModulos() {
+		String resultado = getNumModulos() + "x" + getTamano();
+		return resultado;
+	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getNumModulos() + " " + getTamano() + " " + getTipoMemoria() + " " + getVelocidad();
+		return super.toString() + " " + getModulos() + " " + getTipoMemoria() + " " + getVelocidad();
 	}
 	
 	

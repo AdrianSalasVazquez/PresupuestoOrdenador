@@ -36,6 +36,10 @@ public class Componente {
 		this.precio = precio;
 	}
 	
+	public String getNombre() {
+		return getMarca() + " " + getModelo();
+	}
+	
 	@Override
 	public String toString() {
 		return getMarca() + " " + getModelo() + " " + getPrecio();

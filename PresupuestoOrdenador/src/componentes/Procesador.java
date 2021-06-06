@@ -5,17 +5,13 @@ public class Procesador extends Componente {
 	private int nucleos;
 	private int hilos;
 	private String velocidad;
-	private int maxRAM;
-	private String tipoRAM;
-	private int consumo;
+	private double consumo;
 	
-	public Procesador(String marca, String modelo, int nucleos, int hilos, String velocidad, int maxRAM, String tipoRAM, int consumo, double precio) {
+	public Procesador(String marca, String modelo, int nucleos, int hilos, String velocidad, double consumo, double precio) {
 		super(marca, modelo, precio);
 		this.nucleos = nucleos;
 		this.hilos = hilos;
 		this.velocidad = velocidad;
-		this.maxRAM = maxRAM;
-		this.tipoRAM = tipoRAM;
 		this.consumo = consumo;
 	}
 	
@@ -72,49 +68,12 @@ public class Procesador extends Componente {
 	public void setVelocidad(String velocidad) {
 		this.velocidad = velocidad;
 	}
-
-
-
-	/**
-	 * @return the maxRAM
-	 */
-	public int getMaxRAM() {
-		return maxRAM;
-	}
-
-
-
-	/**
-	 * @param maxRAM the maxRAM to set
-	 */
-	public void setMaxRAM(int maxRAM) {
-		this.maxRAM = maxRAM;
-	}
-
-
-
-	/**
-	 * @return the tipoRAM
-	 */
-	public String getTipoRAM() {
-		return tipoRAM;
-	}
-
-
-
-	/**
-	 * @param tipoRAM the tipoRAM to set
-	 */
-	public void setTipoRAM(String tipoRAM) {
-		this.tipoRAM = tipoRAM;
-	}
-
-
+	
 
 	/**
 	 * @return the consumo
 	 */
-	public int getConsumo() {
+	public double getConsumo() {
 		return consumo;
 	}
 
@@ -123,7 +82,7 @@ public class Procesador extends Componente {
 	/**
 	 * @param consumo the consumo to set
 	 */
-	public void setConsumo(int consumo) {
+	public void setConsumo(double consumo) {
 		this.consumo = consumo;
 	}
 
@@ -131,7 +90,7 @@ public class Procesador extends Componente {
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getNucleos() + " " + getHilos() + " " + getVelocidad() + " " + getMaxRAM() + " " + getTipoRAM() + " " + getConsumo();
+		return super.toString() + " " + getNucleos() + " " + getHilos() + " " + getVelocidad() + " " + getConsumo();
 	}
 	
 }

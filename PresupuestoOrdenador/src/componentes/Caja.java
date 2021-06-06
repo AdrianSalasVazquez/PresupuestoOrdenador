@@ -7,9 +7,9 @@ public class Caja extends Componente {
 	int numSsd;
 	int numPci;
 	String material;
-	int peso;
+	double peso;
 	
-	public Caja(String marca, String modelo, double precio, String factorForma, int numUsb, int numHdd, int numSsd, int numPci, String material, int peso) {
+	public Caja(String marca, String modelo, double precio, String factorForma, int numUsb, int numHdd, int numSsd, int numPci, String material, double peso) {
 		super(marca, modelo, precio);
 		this.factorForma = factorForma;
 		this.numUsb = numUsb;
@@ -68,7 +68,7 @@ public class Caja extends Componente {
 		this.material = material;
 	}
 
-	public int getPeso() {
+	public double getPeso() {
 		return peso;
 	}
 

@@ -3,21 +3,16 @@ package componentes;
 public class DiscoDuro extends Componente {
 	private String tipoDisco;
 	private int capacidad;
-	private String interfaz;
-	private int tamanoFisico;
-	private int consumo;
+	private double consumo;
 	
-	public DiscoDuro(String marca, String modelo, double precio, String tipoDisco, int capacidad, int tamanoFisico, String interfaz, int consumo) {
+	public DiscoDuro(String marca, String modelo, double precio, String tipoDisco, int capacidad, double consumo) {
 		super(marca, modelo, precio);
 		this.tipoDisco = tipoDisco;
 		this.capacidad = capacidad;
-		this.interfaz = interfaz;
-		this.tamanoFisico = tamanoFisico;
 		this.consumo = consumo;
 		
 	}
 
-	
 	
 	/**
 	 * @return 
@@ -38,33 +33,17 @@ public class DiscoDuro extends Componente {
 		this.capacidad = capacidad;
 	}
 	
-	public String getInterfaz() {
-		return interfaz;
-	}
-	
-	public void setInterfaz(String interfaz) {
-		this.interfaz = interfaz;
-	}
-	
-	public int getTamanoFisico() {
-		return tamanoFisico;
-	}
-	
-	public void setTamanoFisico(int tamanoFisico) {
-		this.tamanoFisico = tamanoFisico;
-	}
-	
-	public int getConsumo() {
+	public double getConsumo() {
 		return consumo;
 	}
 	
-	public void setConsumo(int consumo) {
+	public void setConsumo(double consumo) {
 		this.consumo = consumo;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " " + getTipoDisco() + " " + getCapacidad() + " " + getInterfaz() + " " + getTamanoFisico() + " " + getConsumo();
+		return super.toString() + " " + getTipoDisco() + " " + getCapacidad() +  " " + getConsumo();
 	}
 
 }
