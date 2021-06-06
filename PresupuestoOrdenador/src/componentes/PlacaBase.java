@@ -14,62 +14,58 @@ public class PlacaBase extends Componente{
 		
 	}
 
-	
-	
 	/**
-	 * @return the socket
+	 * Devuelve el socket de la placa
+	 * @return String socket
 	 */
 	public String getSocket() {
 		return socket;
 	}
 
-
-
 	/**
-	 * @param socket the socket to set
+	 * Modifica el socket de la placa
+	 * @param
 	 */
 	public void setSocket(String socket) {
 		this.socket = socket;
 	}
 
-
-
 	/**
-	 * @return the numPCI
+	 * Devuelve el numero de ranuras PCI
+	 * @return int numPCI
 	 */
 	public int getNumPCI() {
 		return numPCI;
 	}
 
-
-
 	/**
-	 * @param numPCI the numPCI to set
+	 * Modifica el numero de ranuras PCI
+	 * @param
 	 */
 	public void setNumPCI(int numPCI) {
 		this.numPCI = numPCI;
 	}
 
-
-
 	/**
-	 * @return the factorForma
+	 * Devuelve el factor forma de la placa
+	 * @return String factorForma
 	 */
 	public String getFactorForma() {
 		return factorForma;
 	}
 
-
-
 	/**
-	 * @param factorForma the factorForma to set
+	 * Modifica el factor forma de la placa
+	 * @param
 	 */
 	public void setFactorForma(String factorForma) {
 		this.factorForma = factorForma;
 	}
-
-
-
+	
+	/**
+	 * Devuelve los detalles del componente
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return super.toString() + " " + getSocket() + " " + getNumPCI() + " " + getFactorForma();
